@@ -1,4 +1,6 @@
 Delta_Task1
 ===========
-
-Text Editor
+Name: Shreya G
+Roll No: 108113083
+Dept: ECE
+Task: Text Editor
