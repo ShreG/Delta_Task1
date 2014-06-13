@@ -12,6 +12,13 @@
 <div id = "font" onclick="fonts()">Aa</div>
 <div id = "dold" onclick="dold()">Do</div>
 <div id="ditalics" onclick="ditalics()">Di</div>
+<h1></h1>
+<div id="boldButton" onclick="unBold()">xB</div>
+<div id="italicsButton" onclick="unItalics()">xI</div>
+<div id="underlineButton" onclick="noUnderline()">xU</div>
+<div id = "font" onclick="fonts()">xAa</div>
+<div id = "dold" onclick="dold()">xDo</div>
+<div id="ditalics" onclick="ditalics()">xDi</div>
 
 
 </head>
@@ -110,12 +117,45 @@ id="input"
 onKeyDown="edit()"></textarea>
 
 <script>
+function bold()
+{
+	var y = document.getElementById('input');
+	var x = y.value;
+	y.style.fontWeight='bold';
+}
 function italics()
 {
 	var y = document.getElementById('input');
 	var x = y.value;
-	y.style.fontStyle="bold";
-	y.innerHTML=y.value;
+	y.style.fontStyle='italic';
+        y.innerHTML = y.value;
+}
+function underline()
+{
+        var y = document.getElementById('input');
+	var x = y.value;
+	y.style.textDecoration='underline';
+        y.innerHTML = y.value;
+}
+function unBold()
+{
+	var y = document.getElementById('input');
+	var x = y.value;
+	y.style.fontWeight='normal';
+}
+function unItalics()
+{
+	var y = document.getElementById('input');
+	var x = y.value;
+	y.style.fontStyle='normal';
+        y.innerHTML = y.value;
+}
+function noUnderline()
+{
+        var y = document.getElementById('input');
+	var x = y.value;
+	y.style.textDecoration='none';
+        y.innerHTML = y.value;
 }
 </script>
 <form>
