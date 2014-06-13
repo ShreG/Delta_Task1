@@ -12,6 +12,7 @@
 <div id = "font" onclick="fonts()">Aa</div>
 <div id = "dold" onclick="dold()">Do</div>
 <div id="ditalics" onclick="ditalics()">Di</div>
+
 <h1></h1>
 <div id="boldButton" onclick="unBold()">xB</div>
 <div id="italicsButton" onclick="unItalics()">xI</div>
@@ -112,16 +113,18 @@
 <textarea 
 rows="10" 
 cols="50" 
-style="font-size:20px;background-color:white;color:purple;" 
-id="input" 
-onKeyDown="edit()"></textarea>
+style="font-size:20px;font-family:"Arial";background-color:white;color:purple;" 
+id="input" onKeyDown="callFunctions()">
+</textarea>
 
 <script>
+char type;
 function bold()
 {
 	var y = document.getElementById('input');
 	var x = y.value;
 	y.style.fontWeight='bold';
+        type='B';
 }
 function italics()
 {
@@ -129,6 +132,7 @@ function italics()
 	var x = y.value;
 	y.style.fontStyle='italic';
         y.innerHTML = y.value;
+        type='i';
 }
 function underline()
 {
@@ -136,6 +140,7 @@ function underline()
 	var x = y.value;
 	y.style.textDecoration='underline';
         y.innerHTML = y.value;
+        type='U';
 }
 function unBold()
 {
@@ -157,10 +162,41 @@ function noUnderline()
 	y.style.textDecoration='none';
         y.innerHTML = y.value;
 }
+function ditalics()
+{
+        var type='D';
+        var y = document.getElementById('input');
+	var x = y.value;
+        var token = x.split(' ');
+        y.style.fontStyle='italic';
+        var ditalicize="";
+        for(var i=0; i<token.length; i++)
+        {
+           if(i%2===0)
+           ditalicize+=token[i].toUpperCase;
+           else
+           ditalicize+=token[i].toLowerCase;
+        }
+        y.value=ditalicize;
+	y.innerHTML = y.value;
+        
+}       
+
+function callFunctions()
+{
+       if (type=='B')
+       bold();
+       if (type=='i')
+       italics();
+       if (type=='U')
+       underline();
+       if (type=='O')
+       dold();
+       if(type=='D')
+       ditalics();
+}
 </script>
-<form>
- Input text here:<input type="text" name="textToEdit"><br>
-</form>
+
 
 </body>
 </html>
